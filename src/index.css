@@ -29,11 +29,35 @@ canvas {
   touch-action: none;
 }
 
-.scrim-max-width {
+.screen-max-width {
   margin-inline-start: auto;
   margin-inline-end: auto;
   position: relative;
   max-width: 1120px;
+}
+
+.tx-gray {
+  color: var(--gray);
+}
+
+.tx-gray-100 {
+  color: var(--gray-100);
+}
+
+.tx-gray-200 {
+  color: var(--gray-200);
+}
+
+.tx-gray-300 {
+  color: var(--gray-300);
+}
+
+.tx-zinc {
+  color: var(--zinc);
+}
+
+.tx-blue {
+  color: var(--blue);
 }
 
 .flex-center {
