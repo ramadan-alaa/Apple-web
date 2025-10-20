@@ -58,6 +58,30 @@ canvas {
   color: var(--blue);
 }
 
+.bg-zinc{
+  background-color: var(--zinc);
+}
+
+.bg-blue{
+  background-color: var(--blue);
+}
+
+.back-gray{
+  background-color: var(--gray);
+}
+
+.back-gray-100{
+  background-color: var(--gray-100);
+}
+
+.back-gray-200{
+  background-color: var(--gray-200);
+}
+
+.back-gray-300{
+  background-color: var(--gray-300);
+}
+
 .flex-center {
   display: flex;
   align-items: center;
