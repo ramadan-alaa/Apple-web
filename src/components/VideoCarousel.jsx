@@ -2,6 +2,7 @@ import { hightlightsSlides } from "../constants";
 import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { replayImg, playImg, pauseImg } from "../utils";
 
 const VideoCarousel = () => {
@@ -22,12 +23,19 @@ const VideoCarousel = () => {
   const { isEnd, isPlaying, isLastVideo, startPlay, videoIndex } = video;
 
   useGSAP(() => {
-    gsap.to("#video", {
-      scrollTrigger: {
-        trigger: "#video",
-        toggleActions: "restart none none none",
-      },
-      onComplete: () => {
+    gsap.to("#slider", {
+      transform: `translateX(${-100 * videoIndex}%)`,
+      duration: 2,
+      ease: "power2.inOut",
+    });
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.create({
+      trigger: videoRef.current[videoIndex],
+      start: "top 80%",
+      end: "bottom 80%",
+      once: true,
+      onEnter: () => {
         setVideo((prev) => ({
           ...prev,
           isPlaying: true,
@@ -93,7 +101,7 @@ const VideoCarousel = () => {
 
       const animUpdated = () => {
         anim.progress(
-          videoRef.current[videoIndex] /
+          videoRef.current[videoIndex].currentTime /
             hightlightsSlides[videoIndex].videoDuration
         );
       };
@@ -134,7 +142,14 @@ const VideoCarousel = () => {
       case "play":
         setVideo((prevVideo) => ({
           ...prevVideo,
-          isPlaying: !prevVideo.isPlaying,
+          isPlaying: true,
+        }));
+        break;
+
+      case "pause":
+        setVideo((prevVideo) => ({
+          ...prevVideo,
+          isPlaying: false,
         }));
         break;
 
@@ -156,6 +171,11 @@ const VideoCarousel = () => {
                   muted
                   playsInline
                   ref={(el) => (videoRef.current[i] = el)}
+                  onEnded={() => {
+                    i !== 3
+                      ? handleProcess("video-end", i)
+                      : handleProcess("video-last");
+                  }}
                   onPlay={() => {
                     setVideo((prevVideo) => ({
                       ...prevVideo,
