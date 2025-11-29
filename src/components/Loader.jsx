@@ -3,9 +3,10 @@ import React from "react";
 
 const Loader = () => {
   return (
-    <Html>
-      <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center">
-        <div className="w-[10vw] h-[10vw] rounded-full">Loading...</div>
+    <Html center>
+      <div className="flex flex-col items-center justify-center">
+        <div className="w-16 h-16 border-4 border-gray-300 border-t-white rounded-full animate-spin"></div>
+        <p className="mt-4 text-white text-sm font-light">Loading...</p>
       </div>
     </Html>
   );
