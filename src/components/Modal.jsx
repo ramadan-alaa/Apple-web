@@ -6,7 +6,8 @@ import { yellowImg } from "../utils";
 import * as THREE from "three";
 import { Canvas } from "@react-three/fiber";
 import { View } from "@react-three/drei";
-import { models } from "../constants";
+import { models, sizes } from "../constants";
+import { color } from "three/tsl";
 
 const Modal = () => {
   const [size, setSize] = useState("small");
@@ -48,7 +49,7 @@ const Modal = () => {
               gsapType="view1"
               controlRef={cameraControlSmall}
               setRotation={setSmallRotation}
-              itrem={modal}
+              item={modal}
               size={size}
             />
 
@@ -58,7 +59,7 @@ const Modal = () => {
               gsapType="view2"
               controlRef={cameraControlLarge}
               setRotation={setLargeRotation}
-              itrem={modal}
+              item={modal}
               size={size}
             />
 
@@ -90,6 +91,17 @@ const Modal = () => {
                   />
                 ))}
               </ul>
+              <button className="size-btn-container cursor-pointer">
+                {sizes.map(({ label, value}) => (
+                  <span key={label} className="size-btn"
+                  style={{
+                    backgroundColor: size === value ? "white" : "transparent",
+                    color : size === value ? "black" : "white",
+                  }} onClick={() => setSize(value)}>
+                    {label}
+                  </span>
+                ))}
+              </button>
             </div>
           </div>
         </div>
