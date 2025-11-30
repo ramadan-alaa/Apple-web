@@ -181,6 +181,11 @@ canvas {
   }
 }
 
+.g-heading {
+  opacity: 0;
+  transform: translateY(100px);
+}
+
 .feature-text {
   color: var(--gray);
   max-width: 28rem;
