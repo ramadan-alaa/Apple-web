@@ -284,12 +284,12 @@ canvas {
 .hiw-title {
   text-align: center;
   font-weight: 600;
-  font-size: 4rem;
+  font-size: 1rem;
 }
 
 @media (min-width: 768px) {
   .hiw-title {
-    font-size: 7rem;
+    font-size: 3rem;
   }
 }
 
@@ -316,17 +316,30 @@ canvas {
   overflow: hidden;
 }
 
+@media (max-width: 767px) {
+  .hiw-video {
+    border-radius: 0;
+  }
+}
+
 .hiw-text-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: start;
   gap: 6rem;
+  margin-top: 2rem;
 }
 
 @media (min-width: 768px) {
   .hiw-text-container {
     flex-direction: row;
+  }
+}
+
+@media (max-width: 767px) {
+  .hiw-text-container {
+    gap: 0;
   }
 }
 

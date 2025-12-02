@@ -3,6 +3,8 @@ import Hero from "./components/Hero";
 import Highlights from "./components/Highlights";
 import Modal from "./components/Modal";
 import Features  from "./components/Features";
+import HowItWorks from "./components/HowItWorks";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -12,6 +14,8 @@ function App() {
       <Highlights />
       <Modal />
       <Features />
+      <HowItWorks />
+      <Footer />
     </>
   );
 }
