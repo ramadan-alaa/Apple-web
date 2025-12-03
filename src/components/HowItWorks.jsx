@@ -14,7 +14,7 @@ const HowItWorks = () => {
         start: "20% bottom",
       },
       opacity: 0,
-      scale: 1.3,
+      scale: 1.1,
       duration: 2,
       ease: "power2.inOut",
     });
